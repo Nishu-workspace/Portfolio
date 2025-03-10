@@ -8,6 +8,9 @@ function App() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
+    // ✅ Ensure code runs only on the client-side (fixes Vercel issue)
+    if (typeof window === 'undefined') return;
+
     const handleScroll = () => {
       const about = document.getElementById('about');
       const projects = document.getElementById('projects');
